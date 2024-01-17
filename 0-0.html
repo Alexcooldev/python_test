@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Flying Shape</title>
+    <style>
+    #ball {
+        height: 50px;
+        width: 50px;
+        position: absolute;
+        border-radius: 50px;
+        background-color: #F7844E;
+    }
+    </style>
+</head>
+<body>
+<div id="ball"></div>
+<button id="btn1">Остановить шар</button>
+<script>
+
+   let myRandom = (a, b) => {
+        return Math.round(Math.random() * (b - a) + a)
+    }
+    let counterX = 0
+    let counterY = 0
+    let futureX = myRandom(-90, 180) //5
+   let futureY = myRandom(-90, 180) //8
+   let interval = setInterval(()=> {
+
+
+     if (counterY === futureY) {
+
+     }
+     else {
+         counterY++
+     }
+     if (counterX === futureX) {
+
+     }
+     else {
+         counterX++
+     }
+     if (counterY === futureY && counterX === futureX) {
+         futureX+=myRandom(-100, 180)
+     futureY+=myRandom(-100, 180)
+     }
+
+    ball.style.left = counterX+"px"
+    ball.style.top = counterY+"px"
+
+ }, 0,6)
+   ball.onclick = () => {
+       alert('Ура! Вы поймали Колобка!')
+       ball.style.visibility = 'hidden'
+       clearInterval(interval)
+       let interval2 = setInterval(()=> {
+        document.body.style.background = `rgb(${myRandom(0, 255)}, ${myRandom(0, 255)}, ${myRandom(0, 255)})`
+ }, 100)
+   }
+    btn1.onclick = () => {
+       clearInterval(interval)
+    }
+
+
+</script>
+</body>
+</html>
